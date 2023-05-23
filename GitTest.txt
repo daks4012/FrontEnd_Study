@@ -1,3 +1,5 @@
+GitHub BT file merge Test
+
 GitHub add Test
 GitHub difftool Test
 
