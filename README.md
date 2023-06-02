@@ -49,21 +49,6 @@ Hi, I am trying to become a nice developer😎
   <img src="https://img.shields.io/badge/Spring-6DB33F?style=flat&logo=Spring&logoColor=white"/>
  <!--언어 및 툴 --> <br/>
 
- <br/>
- <br/>
- 
- ## Problem Solving :muscle: 
- </a>
-<br/><br/><br/>
-  
-<!--깃허브
-<h3>Github :eyes: </h3>
-  [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fyoon828&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
-  
-[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=yoon828&show_icons=true&theme=synthwave)](https://github.com/anuraghazra/github-readme-stats)
-<br/><br/><br/> -->
-  
- 
 </div>
 
 # 2023-FrontEnd_Study
