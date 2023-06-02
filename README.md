@@ -17,7 +17,7 @@ Here are some ideas to get you  started:
 <div align=center>
 <!--소개-->
 
-## Introduction :raised_hands:
+## Introduction
 Hi, I am trying to become a nice developer😎
 <br/><br/>
  
