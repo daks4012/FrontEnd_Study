@@ -24,8 +24,3 @@ practicing to study various skills and develop user-friendly designs
 <br/><br/>
 
 </div>
-
-# 2023-FrontEnd_Study
-2023 FrontEnd Study project
-
-
