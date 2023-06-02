@@ -18,7 +18,9 @@ Here are some ideas to get you  started:
 <!--소개-->
 
 ## Introduction
-This is a 2023 web study project.
+2023 Web Development Study Project
+
+practicing to study various skills and develop user-friendly designs
 <br/><br/>
  
  
