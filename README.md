@@ -18,7 +18,7 @@ Here are some ideas to get you  started:
 <!--소개-->
 
 ## Introduction
-Hi, I am trying to become a nice developer😎
+This is a 2023 web study project.
 <br/><br/>
  
  
