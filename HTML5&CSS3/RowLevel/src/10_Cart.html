@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../styles/css/Cart.css">
+    <title>Cart</title>
+</head>
+<body>
+    <div id="container">
+        <h3>Shopping Cart</h3>
+        <div id="contents">
+            <table>
+                <thead>
+                    <tr>
+                        <td class="img">image</td>
+                        <td class="item">item</td>
+                        <td class="amount">amount</td>
+                        <td class="price">price</td>
+                        <td class="total">total</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="img">
+                            <img id="product" src="../styles/assets/img/NoCopyrightProduct3.jpg" alt="저작권 없는 시계">
+                            <!-- Rachit Tank 저작 -->
+                        </td>
+                        <td class="item">
+                            <p>minimal watch</p>
+                            <p style="color: gray; font-size: 0.5rem;">producer - Rachit Tank</p>
+                        </td>
+                        <td class="amount">1</td>
+                        <td class="price">120$</td>
+                        <td class="total">120$</td>
+                    </tr>
+                    <tr>
+                        <td class="img">
+                            <img id="product" src="../styles/assets/img/NoCopyrightBottle.jpg" alt="저작권 없는 보틀">
+                        </td> <!-- Ryan Hoffman저작 -->
+                        <td class="item">
+                            <p>black bottle</p>
+                            <p style="color: gray; font-size: 0.5rem;">producer - Ryan Hoffman</p>
+                        </td>
+                        <td class="amount">2</td>
+                        <td class="price">20$</td>
+                        <td class="total">40$</td>
+                    </tr>
+                    <tr>
+                        <td id="totla-total" colspan='5'>
+                            <p style="padding-right: 10px;">
+                                160$
+                            </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p id="edit-cart">edit your shopping cart?</p>
+        <input id="payment" type="button" value="payment"></input>
+    </div>
+</body>
+
+</html>
