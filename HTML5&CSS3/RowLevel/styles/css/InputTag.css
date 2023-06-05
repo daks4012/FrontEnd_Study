@@ -1,0 +1,84 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+div {
+    box-sizing: border-box;
+}
+input {
+    display: block;
+}
+#background-container {
+    width: 1024px;
+    height: 720px;
+    background-color: rgb(114, 113, 113);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border: solid 2px black;
+}
+#form-container {
+    width: 300px;
+    height: 425px;
+    background-color: white;
+    padding: 10px;
+}
+h3 {
+    margin: 5px 0px 10px 15px;
+}
+#form-container div, input, textarea {
+    margin-left: 1rem;
+    margin-bottom: 7.5px;
+}
+#input-email {
+    width: 85%;
+}
+#Fname {
+    width: 40%;
+    display: inline-block;
+}
+#Lname {
+    display: inline;
+}
+#input-Fname {
+    width: 37.5%;
+    display: inline-block;
+}
+#input-Lname {
+    display: inline;
+    width: 37.5%;
+}
+#checkbox {
+    display: inline;
+    margin-top: 5px;
+    width: 20px;
+    height: 20px;
+}
+p {
+    display: inline-block;
+    position: relative;
+    margin-left: 5px;
+    margin-bottom: 20px;
+    margin-block-end: 0;
+    margin-block-start: 0;
+    top: -10px;
+}
+
+textarea{
+    width: 86.5%;
+}
+
+#submit {
+    float: right;
+    width: 75px;
+    margin-right: 17.5px;
+    margin-bottom: 10px;
+    border: solid 2xp black;
+    border-radius: 5px;
+    background-color: beige;
+}
+#checkbox, #submit, p {
+    margin-top: 5px;
+    margin-bottom: auto;
+    height: 30px;
+}
