@@ -1,0 +1,16 @@
+body {
+    width: 1024px;
+    height: 720px;
+}
+.container {
+    width: 50%;
+    height: 50%;
+    background-image: url(../assets/img/NoCopyrightProduct2.png);
+    background-size: cover; /* 배경 이미지를 지정된 요소에 맞게 채움 */
+    background-repeat: no-repeat;  /* 배경 이미지 반복 여부 설정 */
+    background-position: center; /* 배경 이미지 위치 설정 */
+    padding: 1px;
+}
+h2, h4 {
+    margin: 15px 0px 0px 10px;
+}
