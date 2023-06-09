@@ -6,7 +6,7 @@
 ## Introduction
 2023 Web Development Study Project
 
-practicing to study various skills and develop user-friendly designs
+studying various skills and develop user-friendly designs
 <br/><br/>
 
 </div>
