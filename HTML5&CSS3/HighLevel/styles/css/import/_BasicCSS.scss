@@ -1,0 +1,22 @@
+@font-face {
+    src: url("/HTML5&CSS3/HighLevel/styles/assets/font/MSFont_TTF/Maplestory\ Light.ttf");
+    font-family: "MSfont";
+}
+
+* {
+    font-family: "MSfont";
+    margin-block-start: 0;
+    margin-block-end: 0;
+    white-space: nowrap;
+}
+
+body{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+div{
+    box-sizing: border-box;
+}
+
