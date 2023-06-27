@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdminPage</title>
+    <link rel="icon" href="../styles/assets/logo/Daks.png">
+    <link rel="stylesheet" href="../styles/css/AdminPage.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div id="SideArea">
+        asd
+    </div>
+    <div id="ContentsArea">
+        <div id="Head-Container">
+            asd
+        </div>
+        <div id="DashboardContainer">
+            <h2>Dash Borad</h2>
+            <div id="Dashboard-GridContainer">
+                <div class="Dashboard-GridItem">a</div>
+                <div class="Dashboard-GridItem">b</div>
+                <div class="Dashboard-GridItem">c</div>
+                <div class="Dashboard-GridItem">d</div>
+            </div>
+        </div>
+        <div id="ContentsContainer">
+            <div id="ChartContainer">
+                <h3>Earnings Overview</h3>
+                <hr>
+                <canvas id="myChart"></canvas>
+                <script>
+                    var ctx = document.getElementById('myChart').getContext('2d');
+                    var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                            datasets: [{
+                                label: '# of Votes',
+                                data: [12, 19, 3, 5, 2, 3],
+                                backgroundColor: '#A9D0F5',
+                                borderColor: '#000',
+                                borderWidth: 1.5
+                            }]
+                        },
+                        options: {
+                            responsive: false,
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                }
+                            }
+                        }
+                    });
+                </script>
+            </div>
+            <div id="TaskContainer">
+                <h3>Tasks</h3>
+                <hr>
+                <p>wished item</p>
+                <p>notion coment</p>
+                <p>Git changes</p>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
