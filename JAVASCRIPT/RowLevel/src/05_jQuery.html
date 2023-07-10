@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+    <link rel="stylesheet" href="../styles/css/jQuery.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous">
+        </script>
+</head>
+
+<body>
+    <button id="loginBtn">로그인</button>
+    <div class="black-bg">
+        <div class="white-bg">
+            <h4>로그인하세요</h4>
+                <button type="button" id="close">닫기</button>
+        </div>
+    </div>
+    <script>
+        $("#loginBtn").on("click", function () {
+            $(".black-bg").addClass('visible')
+        });
+        $("#close").on("click", function () {
+            $(".black-bg").removeClass('visible');
+        });
+    </script>
+</body>
+
+</html>
