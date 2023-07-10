@@ -21,12 +21,16 @@
 </div>
 <div>
 
-## About me
+## About me (move on click)
+
 <a href="https://time-belly-ce2.notion.site/2023-8035319d2b7a4c8ca72ddd8300783179?pvs=4">
 <img src="https://img.shields.io/badge/Notion-black?style=flat&logo=Notion&logoColor=white"/>
 </a>
 <a href="https://github.com/daks4012">
 <img src="https://img.shields.io/badge/Git-gray?style=flat&logo=Git&logoColor=white"/>
+</a>
+<a href="https://github.com/daks4012/daks4012.github.io">
+<img src="https://img.shields.io/badge/Git io-black?style=flat&logo=Git&logoColor=white"/>
 </a>
 </div>
 </div>
