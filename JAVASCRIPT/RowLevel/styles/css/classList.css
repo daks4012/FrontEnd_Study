@@ -1,0 +1,11 @@
+button{
+    cursor: pointer;
+}
+
+.add {
+    display: none;
+}
+
+.visible {
+    display: inline;
+}
