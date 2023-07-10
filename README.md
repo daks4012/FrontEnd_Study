@@ -10,3 +10,5 @@ studying various skills and develop user-friendly designs
 <br/><br/>
 
 </div>
+
+[2023 FrontEnd Study Project Notion URL](https://time-belly-ce2.notion.site/2023-8035319d2b7a4c8ca72ddd8300783179?pvs=4, "Move on click")
