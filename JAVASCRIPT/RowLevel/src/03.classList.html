@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../styles/css/classList.css" rel="stylesheet">
+    <title>classList</title>
+</head>
+
+<body>
+    <span class="text">클래스리스트
+        <p class="add">add</p>
+    </span>
+    <br>
+    <button onclick="add()">add</button>
+    <button onclick="remove()">remove</button>
+    <button onclick="toggle()">toggle</button>
+    <script>
+        function add() {
+            document.querySelector('.add').classList.add('visible');
+        }
+        function remove() {
+            document.querySelector('.add').classList.remove('visible');
+        }
+        function toggle() {
+            document.querySelector('.add').classList.toggle('visible');
+        }
+    </script>
+</body>
+
+</html>
