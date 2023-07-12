@@ -48,10 +48,6 @@
                 alert("비밀번호를 입력해주세요.");
                 e.preventDefault();
             }
-            if (document.getElementById('loginPW').value.length > 4) {
-                alert("비밀번호는 4자리를 넘을 수 없습니다.");
-                e.preventDefault();
-            }
         });
 
         $('form').on("input", function (e) {
