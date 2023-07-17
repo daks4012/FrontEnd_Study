@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../styles/css/variable.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous">
+        </script>
+</head>
+
+<body>
+    <nav>
+        <img src="../styles/assets/logo/Daks.png">
+        <span class="badge bg-dark">Dark 🔄</span>
+    </nav>
+    <div id="btnContainer">
+        <p id="content">If you want to purchase a product</p>
+        <button id="loginBtn">로그인</button>
+    </div>
+    <div class="black-bg">
+        <div class="white-bg">
+            <h4>로그인하세요</h4>
+            <form action="../src/06-1_Sucsess.html">
+                <div class="my-3">
+                    <input type="text" id="loginID" class="form-control">
+                </div>
+                <div class="my-3">
+                    <input type="password" id="loginPW" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary" id="push">전송</button>
+                <button type="button" class="btn btn-danger" id="close">닫기</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        $("#loginBtn").on("click", function () {
+            $(".black-bg").addClass('visible')
+        });
+
+        $("#close").on("click", function () {
+            $(".black-bg").removeClass('visible');
+        });
+
+        $('form').on("submit", function (e) {
+            if (document.getElementById('loginID').value == '') {
+                alert("아이디를 입력해주세요.");
+                e.preventDefault();
+            } else if (document.getElementById('loginPW').value == '') {
+                alert("비밀번호를 입력해주세요.");
+                e.preventDefault();
+            }
+        });
+
+        $('form').on("input", function (e) {
+            if (document.getElementById('loginPW').value.length > 4) {
+                alert("비밀번호는 4자리를 넘을 수 없습니다.");
+                e.preventDefault();
+            }
+        });
+
+        var count = 0;
+        $('.badge').on('click', function () {
+            count += 1;
+            if (count % 2 == 1) {
+                $('.badge').html('Light 🔄');
+                document.querySelector('#btnContainer').classList.add('dark');
+                document.querySelector('.badge').classList.add('white');
+            } else {
+                $('.badge').html('Dark 🔄')
+                document.querySelector('#btnContainer').classList.remove('dark');
+                document.querySelector('.badge').classList.remove('white');
+            }
+        });
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
