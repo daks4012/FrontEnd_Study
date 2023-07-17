@@ -19,6 +19,30 @@ h4 {
     margin-bottom: 10px;
 }
 
+p{
+    margin: 0;
+}
+
+img{
+    width: 50px;
+    margin-left: 10px;
+}
+
+.badge{
+    float: right;
+    margin: 12.5px 20px 0 10px;
+    cursor: pointer;
+}
+
+#btnContainer{
+    width: 100%;
+    background-color: beige;
+}
+
+#content{
+    padding: 10px 0 0 10px;
+}
+
 #loginBtn,
 #close {
     padding: 5px 15px;
