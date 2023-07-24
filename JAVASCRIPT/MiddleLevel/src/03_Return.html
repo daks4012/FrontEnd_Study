@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Return</title>
+</head>
+
+<body>
+    <script>
+        console.log(밀리세컨드변환기(1,30));
+        console.log(밀리세컨드변환기(2,10));
+
+        console.log(할인기(10.3, true));
+        console.log(할인기(10.3, false));
+
+        function 밀리세컨드변환기(m, s) {
+            m = m * 60000;
+            s = s * 1000;
+            sum = m + s;
+            return sum;
+        }
+
+        function 할인기(price, Whether) {
+            price = price - (price * 0.1);
+            if(Whether) {
+                price = price - 1.5;
+            }
+            return parseFloat(price).toFixed(1);
+        }
+    </script>
+</body>
+
+</html>
