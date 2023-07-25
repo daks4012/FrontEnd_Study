@@ -1,0 +1,138 @@
+@font-face {
+    src: url("../assets/font/MSFont_TTF/Maplestory\ Light.ttf");
+    font-family: "MSfont";
+}
+
+* {
+    white-space: nowrap;
+    font-family: "MSfont";
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+h4 {
+    margin-bottom: 10px;
+}
+
+p{
+    margin: 0;
+}
+
+img{
+    width: 50px;
+    margin-left: 10px;
+}
+
+.list-group{
+    width: 100%;
+}
+
+.badge{
+    float: right;
+    margin: 12.5px 20px 0 10px;
+    padding-top: 5px;
+    cursor: pointer;
+}
+
+#btnContainer{
+    width: 100%;
+    background-color: beige;
+    height: 250px;
+    padding-top: 100px;
+}
+
+#content{
+    padding: 10px 0 0 10px;
+}
+
+#loginBtn,
+#close {
+    padding: 5px 15px;
+}
+
+#loginBtn {
+    margin: 10px;
+    font-family: "MSfont";
+    border-radius: 5px;
+}
+
+.black-bg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 5;
+    padding-top: 30px;
+    text-align: center;
+    top: 0px;
+    visibility: hidden;
+    opacity: 0;
+    transition : all 0.5s;
+}
+
+.white-bg {
+    display: inline-block;
+    width: 50%;
+    background: white;
+    border-radius: 5px;
+    padding: 30px;
+}
+
+.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+#slideContainer {
+    width: 300vw;
+    height: 200px;
+    transition: all 1s;
+}
+
+.dark{
+    color: white;
+    background-color: black !important;
+    
+}
+
+.white{
+    color: black;
+    background-color: white !important;
+    border: solid 1px black;
+}
+
+.show{
+    display: none;
+}
+
+.navbar {
+    position: fixed;
+    width: 100%;
+}
+
+.navbar-toggler{
+    float: right;
+    margin-top: 5px;
+}
+
+.slideBox{
+    width: 100vw;
+    float: left;
+}
+
+.slideBox img{
+    width: 100%;
+    margin: 0;
+}
+
+#termsofuseContainer {
+    width: 250px;
+    height: 150px;
+    overflow: scroll;
+    white-space: normal;
+}
