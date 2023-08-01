@@ -1,5 +1,1 @@
 https://time-belly-ce2.notion.site/HTML-CSS-e2fac067641c4cee98243b4dc771dcdc?pvs=4
-
-<a href="https://time-belly-ce2.notion.site/2023-8035319d2b7a4c8ca72ddd8300783179?pvs=4">
-<img src="https://img.shields.io/badge/Notion-black?style=flat&logo=Notion&logoColor=white"/>
-</a>
