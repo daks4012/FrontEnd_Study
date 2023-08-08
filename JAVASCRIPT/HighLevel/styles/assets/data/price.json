@@ -1,3 +1,5 @@
-{
-    "price" : [5000, 100, 3000]
-}
+[
+    { "id" : 3, "price" : 15000, "title" : "Blazer" },
+    { "id" : 4, "price" : 55000, "title" : "Leggings" },
+    { "id" : 5, "price" : 30000, "title" : "Racer" }
+]
