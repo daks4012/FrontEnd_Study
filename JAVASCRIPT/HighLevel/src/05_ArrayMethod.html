@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link>
+    <link href="../styles/css/ArrayMethod.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous">
+        </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+    <div class="container">
+        <button class="btn btn-danger" id="more">더보기</button>
+    </div>
+    <div class="container">
+        <button class="btn btn-success mt-2" id="price">가격순 정렬</button>
+        <button class="btn btn-success mt-2" id="title">오름차순 정렬</button>
+        <button class="btn btn-success mt-2" id="price6">6만이하 정렬</button>
+    </div>
+    <script>
+        var products = [
+            { id: 0, price: 70000, title: 'shirt' },
+            { id: 1, price: 40000, title: 'jeans' },
+            { id: 2, price: 60000, title: 'shoes' }
+        ]
+        //기본데이터
+        products.forEach(function (products) {
+            document.querySelectorAll('.row')[0].insertAdjacentHTML("beforeend",
+                `<div class="col-sm-4">
+                <img src="https://via.placeholder.com/600" class="w-100">
+                <h5>${products.title}</h5>
+                <p>가격 : ${products.price}</p>
+            </div>`)
+        });
+
+        var count = 0;
+        function 숨기기() {
+            if (count == 2) {
+                document.querySelectorAll('.btn-danger')[0].classList.add('unvisible');
+            }
+        }
+
+        //더보기
+        $('#more').click(function () {
+            if (count == 0) {
+                $.get('https://daks4012.github.io/JAVASCRIPT/HighLevel/styles/assets/data/product.json')
+                    .done((data) => {
+
+                        data.forEach((a, i) => {
+                            var 템플릿 =
+                                `<div class="col-sm-4">
+                            <img src="https://via.placeholder.com/600" class="w-100">
+                            <h5>${data[i].title}</h5>
+                            <p>가격 : ${data[i].price}</p>
+                            </div>`;
+                            $('.row').append(템플릿);
+                        })
+                        count++;
+                        숨기기()
+                    });
+            }
+        });
+
+        $('#more').click(function () {
+            if (count == 1) {
+                $.get('https://daks4012.github.io/JAVASCRIPT/HighLevel/styles/assets/data/product2.json')
+                    .done((data) => {
+                        data.forEach((a, i) => {
+                            var 템플릿 =
+                                `<div class="col-sm-4">
+                            <img src="https://via.placeholder.com/600" class="w-100">
+                            <h5>${data[i].title}</h5>
+                            <p>가격 : ${data[i].price}</p>
+                            </div>`;
+                            $('.row').append(템플릿);
+                        })
+                        count++;
+                        숨기기()
+                    });
+            }
+        });
+        //가격순 정렬
+        $('#price').click(function () {
+            products.sort(function (a, b) {
+                return a.price - b.price
+            });
+            //지우기
+            $('.row').html('');
+            //그리기
+            products.forEach((a, i) => {
+                var 템플릿 =
+                    `<div class="col-sm-4">
+                    <img src="https://via.placeholder.com/600" class="w-100">
+                    <h5>${products[i].title}</h5>
+                    <p>가격 : ${products[i].price}</p>
+                    </div>`;
+                $('.row').append(템플릿)
+            })
+        });
+
+        //글자 오름차순 정렬
+        $('#title').click(function () {
+            products.sort(function (a, b) {
+                if (a.title < b.title) {
+                    return 1
+                } else {
+                    return -1
+                }
+            });
+            //지우기
+            $('.row').html('');
+            //그리기
+            products.forEach((a, i) => {
+                var 템플릿 =
+                    `<div class="col-sm-4">
+                    <img src="https://via.placeholder.com/600" class="w-100">
+                    <h5>${products[i].title}</h5>
+                    <p>가격 : ${products[i].price}</p>
+                    </div>`;
+                $('.row').append(템플릿)
+            })
+        });
+
+        //필터 정렬
+        $('#price6').click(function () {
+            var newProduct = products.filter(a => a.price <= 60000);
+            // var newProduct = products.filter(function (a) {
+            //     return a.price <= 60000
+            // });
+            //지우기
+            $('.row').html('');
+            //그리기
+            newProduct.forEach((a, i) => {
+                var 템플릿 =
+                    `<div class="col-sm-4">
+                    <img src="https://via.placeholder.com/600" class="w-100">
+                    <h5>${newProduct[i].title}</h5>
+                    <p>가격 : ${newProduct[i].price}</p>
+                    </div>`;
+                $('.row').append(템플릿)
+            })
+        });
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
