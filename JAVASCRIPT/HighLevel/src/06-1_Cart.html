@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link>
+    <title>Cart</title>
+    <style>
+        @font-face {
+            src: url("../styles/assets/font/MSFont_TTF/Maplestory\ Light.ttf");
+            font-family: "MSfont";
+        }
+
+        * {
+            font-family: "MSfont";
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row m-1">
+        <h3>현재 담아져 있는 상품 목록</h3>
+    </div>
+    <script>
+        function appendCartToDOM(cartArr) {
+            document.querySelectorAll('.row')[0].insertAdjacentHTML("beforeend", //상품 명 출력
+                `<div">
+                    <h5 class="m-2 fs-5 ms-0">상품 명 : ${cartArr.title}</h5>
+                    <h6>개수 : ${cartArr.num}</h6>
+                </div>`
+            );
+        }
+
+        cartArr = JSON.parse(localStorage.getItem('cart')); //배열로 변환
+        cartArr.forEach(cartArr => { //배열만큼 반복
+            appendCartToDOM(cartArr);
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
