@@ -58,20 +58,25 @@
 
         //로컬 스토리지
         $('.buy').on('click', function (e) {
-            let 상품이름 = e.target.previousElementSibling.previousElementSibling.innerHTML; //상품이름 = $(e.target).siblings('h5').text();
-            var arr = [];
-            var cartArr;
-            var cartStr;
-            if (localStorage.cart == undefined) {
-                arr = [상품이름];
-                cartStr = JSON.stringify(arr); //배열을 문자로 변환
-                localStorage.setItem('cart', cartStr); //로컬 스토리지에 저장
-            } else if (localStorage.cart != undefined) {
-                cartArr = JSON.parse(localStorage.getItem('cart')); //기존값 배열로 받아오기
-                cartArr.push(상품이름); //배열에 상품이름 추가
-                cartStr = JSON.stringify(cartArr); //배열 문자화
-                localStorage.setItem('cart', cartStr); //로컬 스토리지에 저장
+            let 상품이름 = e.target.previousElementSibling.previousElementSibling.innerHTML;
+            var cartArr = [];
+            if (localStorage.cart) { //로컬 스토리지에 무엇이든 존재 할 때
+                cartArr = JSON.parse(localStorage.getItem('cart')); //문자 배열을 받아서 배열 자료로 변환
+                var found = false;
+                for (var i = 0; i < cartArr.length; i++) { //배열 개수만큼 반복
+                    if (cartArr[i].title === 상품이름) { //현재 추가하는 상품이 구매 버튼을 누른 상품과 일치 하는지
+                        cartArr[i].num += 1;
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) { //로컬 스토리지에 중복된게 없을 때
+                    cartArr.push({ title: 상품이름, num: 1 });
+                }
+            } else { //로컬 스토리지에 아무것도 없을 때
+                cartArr.push({ title: 상품이름, num: 1 });//배열에 추가
             }
+            localStorage.setItem('cart', JSON.stringify(cartArr)); //배열을 문자화
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
