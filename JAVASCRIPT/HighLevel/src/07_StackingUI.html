@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StackingUI</title>
+    <link href="../styles/css/StackingUI.css" rel="stylesheet">
+    <link rel="icon" href="../styles/assets/logo/Daks.png">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous">
+        </script>
+</head>
+<body>
+    <div class="card-background">
+        <div class="card-box">
+            <img src="../styles/assets/img/card1.png">
+        </div>
+        <div class="card-box">
+            <img src="../styles/assets/img/card2.png">
+        </div>
+        <div class="card-box">
+            <img src="../styles/assets/img/card3.png">
+        </div>
+    </div>
+    <script>
+        $(window).scroll(function () {
+            var 현재높이 = $(window).scrollTop();
+            // 1차 함수식
+            // y = a * 현재높이 + b 
+            // 1 = a * 624 + b -> a = -1/540
+            // 0 = a * 1164 + b -> b = 97/45
+            var y0 = (-1/540) * 현재높이 + 97/45; //card-box(0)에 적용되는 스크롤 높이
+            $('.card-box').eq(0).css('opacity', y0); //스크롤에 따른 투명도
+
+            // z = a * 현재높이 + b 
+            // 1 = a * 624 + b -> a = -1/5400
+            // 0.9 = a * 1164 + b -> b = 251/225
+            var z0 = (-1/5400) * 현재높이 + 251/225;
+            $('.card-box').eq(0).css('transform', `scale(${z0})`);
+
+            var y1 = (-1/545) * 현재높이 + 1932/545;
+            var z1 = (-1/5450) * 현재높이 + 6837/5450;
+            $('.card-box').eq(1).css('opacity', y1);
+            $('.card-box').eq(1).css('transform', `scale(${z1})`);
+        });
+    </script>
+</body>
+</html>
