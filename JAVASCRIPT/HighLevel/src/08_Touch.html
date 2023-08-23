@@ -72,53 +72,53 @@
 
         let 시작좌표;
         let 프레스 = false;
+        //모바일 환경일 경우 mousedown이 아니라 touchstart
         $('.slideBox').eq(0).on('mousedown', function (e) { //마우스를 눌렀을 때
             시작좌표 = e.clientX;
             프레스 = true;
         });
-        $('.slideBox').eq(1).on('mousedown', function (e) { //마우스를 눌렀을 때
+        $('.slideBox').eq(1).on('mousedown', function (e) {
             시작좌표 = e.clientX;
             프레스 = true;
         });
-        $('.slideBox').eq(2).on('mousedown', function (e) { //마우스를 눌렀을 때
+        $('.slideBox').eq(2).on('mousedown', function (e) {
             시작좌표 = e.clientX;
             프레스 = true;
         });
-
-        $('.slideBox').eq(0).on('mousemove', function (e) { //마우스 이동 중
+        //모바일 환경일 경우 mousemove가 아니라 touchmove
+        $('.slideBox').eq(0).on('mousemove', function (e) {
             if (프레스 == true) {
                 움직임 = e.clientX - 시작좌표;
                 $('#slideContainer').css('transform', `translateX(${움직임}px)`)
             }
         });
-        $('.slideBox').eq(0).on('mousemove', function (e) { //마우스 이동 중
+        $('.slideBox').eq(0).on('mousemove', function (e) {
             if (프레스 == true) {
                 움직임 = e.clientX - 시작좌표;
                 $('#slideContainer').css('transform', `translateX(${움직임}px)`)
             }
         });
-        $('.slideBox').eq(0).on('mousemove', function (e) { //마우스 이동 중
+        $('.slideBox').eq(0).on('mousemove', function (e) {
             if (프레스 == true) {
                 움직임 = e.clientX - 시작좌표;
                 $('#slideContainer').css('transform', `translateX(${움직임}px)`)
             }
         });
-
-            $('.slideBox').eq(0).on('mouseup', function (e) {
-                프레스 = false;
-                console.log(움직임);
-                if (움직임 <= -100) {
-                    $('#slideContainer').css('transition', 'all 1s').css('transform', 'translateX(-100vw)');
-                    현재이미지 = 2;
-                } else if (움직임 >= 100) {
-                    $('#slideContainer').css('transition', 'all 1s').css('transform', 'translateX(-200vw)');
-                    현재이미지 = 3;
-                }
-                setTimeout(function () {
-                    $('#slideContainer').css('transition', 'none');
-                }, 1000);
-            });
-
+        //모바일 환경일 경우 mouseup가 아니라 touchend
+        $('.slideBox').eq(0).on('mouseup', function (e) {
+            프레스 = false;
+            console.log(움직임);
+            if (움직임 <= -100) {
+                $('#slideContainer').css('transition', 'all 1s').css('transform', 'translateX(-100vw)');
+                현재이미지 = 2;
+            } else if (움직임 >= 100) {
+                $('#slideContainer').css('transition', 'all 1s').css('transform', 'translateX(-200vw)');
+                현재이미지 = 3;
+            }
+            setTimeout(function () {
+                $('#slideContainer').css('transition', 'none');
+            }, 1000);
+        });
         $('.slideBox').eq(1).on('mouseup', function (e) {
             프레스 = false;
             console.log(움직임);
@@ -135,7 +135,6 @@
                 }, 1000);
             }
         });
-
         $('.slideBox').eq(2).on('mouseup', function (e) {
             프레스 = false;
             console.log(움직임);
@@ -152,8 +151,6 @@
                 }, 1000);
             }
         });
-
-
     </script>
 </body>
 
