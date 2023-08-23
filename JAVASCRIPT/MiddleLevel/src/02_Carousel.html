@@ -114,16 +114,19 @@
             }
         });
 
+        var 현재이미지 = 1;
         $('#slideBTN1').on('click', function () {
             $('#slideContainer').css('transform', 'translateX(0vw)');
+            현재이미지 = 1;
         });
         $('#slideBTN2').on('click', function () {
             $('#slideContainer').css('transform', 'translateX(-100vw)');
+            현재이미지 = 2;
         });
         $('#slideBTN3').on('click', function () {
             $('#slideContainer').css('transform', 'translateX(-200vw)');
+            현재이미지 = 3;
         });
-        var 현재이미지 = 1;
         $('#nextBTN').on('click', function () {
             if (현재이미지 == 1) {
                 $('#slideContainer').css('transform', 'translateX(-100vw)');
