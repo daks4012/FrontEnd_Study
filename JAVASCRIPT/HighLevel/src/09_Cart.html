@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="../styles/css/Cart.css" rel="stylesheet">
+<link rel="icon" href="../styles/assets/logo/Daks.png">
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"
+    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous">
+    </script>
+<title>Cart</title>
+</head>
+
+<body>
+    <div id="navContainer">
+        <img id="logoIMG" src="../styles/assets/logo/Daks.png">
+        <h2>HOME</h2>
+        <h3>스토어</h3>
+        <h3>시공견적</h3>
+    </div>
+    <div id="serchContainer">
+        <input id="serchInput" placeholder="&nbsp;상품 검색">
+    </div>
+    <div id="productContainer">
+
+    </div>
+    <div id="cartContainer">
+        <h2>장바구니</h2>
+        <div id="cart">asd</div>
+    </div>
+    <div id="totalContainer">
+        <h2>총 가격</h2>
+        <div id="total">asd</div>
+        <button id="buyBTN">구매하기</button>
+    </div>
+    <div id="infoModal">
+        <div id="infoContainer">
+            <h2>이름</h2>
+            <input id="infoName" type="text">
+            <h2>전화번호</h2>
+            <input id="infoNum" type="tel"><br>
+            <button id="infoBTN">입력 완료</button>
+            <button class="closeBTN">닫기</button>
+        </div>
+    </div>
+    <div id="billModal">
+        <div id="billContainer">
+            <h2>영수증</h2>
+            <div>asd</div>
+            <button id="billBTN" class="closeBTN">닫기</button>
+        </div>
+    </div>
+
+    <script>
+        $.get('https://daks4012.github.io/JAVASCRIPT/HighLevel/styles/assets/data/store.json').done(function (data) { //데이터 바인딩
+            storeArr = data.products;
+            storeArr.forEach(function (a, i) {
+                document.querySelectorAll('#productContainer')[0].insertAdjacentHTML("beforeend",
+                    `<div class="productCard">
+                        <img class="productIMG" src="https://daks4012.github.io/JAVASCRIPT/HighLevel/styles/assets/img/${storeArr[i].photo}">
+                        <h3>${storeArr[i].title}</h3>
+                        <h5>${storeArr[i].brand}</h5>
+                        <p>가격 : ${storeArr[i].price}</p>
+                        <button class="productBTN">구매</button>
+                    </div>`
+                );
+            });
+        });
+
+        $('#total').bind('DOMSubtreeModified', function () { //변경감지
+            console.log("변경감지");
+        });
+
+        $('.closeBTN').on('click', function () { //닫기버튼
+            document.querySelectorAll('#infoModal')[0].style.display = 'none';
+            document.querySelectorAll('#billModal')[0].style.display = 'none';
+        });
+
+        document.querySelectorAll('#buyBTN')[0].addEventListener('click', function () { //구매하기 버튼 클릭
+            document.querySelectorAll('#infoModal')[0].style.display = 'block';
+        });
+
+        document.querySelectorAll('#infoBTN')[0].addEventListener('click', function () { //입력완료 버튼 클릭
+            document.querySelectorAll('#infoModal')[0].style.display = 'none';
+            document.querySelectorAll('#billModal')[0].style.display = 'block';
+        });
+
+
+    </script>
+</body>
+
+</html>
