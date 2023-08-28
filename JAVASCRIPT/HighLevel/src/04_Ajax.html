@@ -47,7 +47,7 @@
                 document.querySelectorAll('.btn-danger')[0].classList.add('unvisible');
             }
         }
-
+        //템플릿
         document.querySelectorAll('.btn-danger')[0].addEventListener('click', function () {
             if (count == 0) {
                 $.get('https://daks4012.github.io/JAVASCRIPT/HighLevel/styles/assets/data/product.json').done(function (data) {
@@ -68,10 +68,10 @@
                     data.forEach(function (a, i) {
                         document.querySelectorAll('.row')[0].insertAdjacentHTML("beforeend",
                             `<div class="col-sm-4">
-                    <img src="https://via.placeholder.com/600" class="w-100">
-                    <h5>${data[i].title}</h5>
-                    <p>가격 : ${data[i].price}</p>
-                </div>`
+                                <img src="https://via.placeholder.com/600" class="w-100">
+                                <h5>${data[i].title}</h5>
+                                <p>가격 : ${data[i].price}</p>
+                            </div>`
                         );
                     });
                 });
