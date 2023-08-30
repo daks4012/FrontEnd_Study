@@ -32,11 +32,11 @@
     </div>
     <div id="cartContainer">
         <h2>장바구니</h2>
-        <div id="cart">asd</div>
+        <div id="cart"></div>
     </div>
     <div id="totalContainer">
         <h2>총 가격</h2>
-        <div id="total">asd</div>
+        <div id="total"></div>
         <button id="buyBTN">구매하기</button>
     </div>
     <div id="infoModal">
@@ -58,8 +58,11 @@
     </div>
 
     <script>
-        $.get('https://daks4012.github.io/JAVASCRIPT/HighLevel/styles/assets/data/store.json').done(function (data) { //데이터 바인딩
-            storeArr = data.products;
+        let products = [];
+        let cart = [];
+        let 주소 = 'https://daks4012.github.io/JAVASCRIPT/HighLevel/styles/assets/data/store.json';
+        $.get(주소).done(function (data) { //데이터 바인딩
+            storeArr = data.products; //자주 쓰니 변수화
             storeArr.forEach(function (a, i) {
                 document.querySelectorAll('#productContainer')[0].insertAdjacentHTML("beforeend",
                     `<div class="productCard" draggable="true" data-id="${a.id}">
@@ -67,21 +70,76 @@
                         <h3 class="title">${a.title}</h3>
                         <h5 class="brand">${a.brand}</h5>
                         <p>가격 : ${a.price}</p>
-                        <button class="productBTN">구매</button>
+                        <button class="productBTN" data-id="${a.id}">구매</button>
                     </div>`
                 );
             });
-            $('.productBTN').click(function(e) { //상품목록 구매버튼 클릭
+            //구매버튼
+            $('.productBTN').click(function (e) { //상품목록 구매버튼 클릭
+                //현재 상품
                 let productId = e.target.dataset.id;
-                console.log(productId);
+                //cart에 상품이 없다면 추가, 있으면 개수 추가
+                //누를시 cart 배열에 객체 형태로 보관
+                let 번째 = cart.findIndex(function (a) {
+                    return a.id == productId
+                });
+                if (번째 == -1) {
+                    let 현재상품 = storeArr.find(function (a) {
+                        return a.id == productId
+                    });
+                    현재상품.count = 1;
+                    cart.push(현재상품);
+                } else {
+                    cart[번째].count++;
+                }
+                //담기버튼 누를 때 마다 cart 배열 안에있는 객체만큼 출력
+                $('#cart').html(''); //목록 밀어버리기
+                cart.forEach((a, i) => {
+                    $('#cart').append(`
+                        <div class="cartCard">
+                            <img class="productIMG" src="https://daks4012.github.io/JAVASCRIPT/HighLevel/styles/assets/img/${a.photo}">
+                            <h3 class="title">${a.title}</h3>
+                            <h5 class="brand">${a.brand}</h5>
+                            <p>${a.price}</p>
+                            <input type="number" value="${a.count}" class="item-count w-100">
+                        </div>
+                    `);
+                });
+                //총가격 계산
+                총가격();
+                //input값 조절시 총가격 조절
+                $('.item-count').on('input', function () {
+                    총가격();
+                });
+            });//구매버튼 끝
+            //드래그 기능
+            $('.productCard').on('dragstart', function (e) { //드래그
+                e.originalEvent.dataTransfer.setData('id', e.target.dataset.id);
+                console.log("드래그 시작");
             });
-        });
+            $('#cart').on('dragover', function (e) { //드롭 친구
+                e.preventDefault();
+            });
+            $('#cart').on('drop', function (e) { //드롭
+                e.preventDefault();
+                let productId = e.originalEvent.dataTransfer.getData('id');
+                $('.productBTN').eq(productId).click();
+            });
+        });//get 끝
 
-        $('#total').bind('DOMSubtreeModified', function () { //변경감지
-            console.log("변경감지");
-        });
+        //총가격 계산해서 표기해주는 기능
+        function 총가격() {
+            let finalPrice = 0;
+            for (let i = 0; i < $('.item-count').length; i++) { //103열 input
+                var price = $('.item-count').eq(i).val();
+                var count = $('.item-count').eq(i).siblings('p').text();
+                finalPrice += parseFloat(price * count);
+            }
+            $('#total').html('합계 ' + finalPrice);
+        }
 
-        $('.closeBTN').on('click', function () { //닫기버튼
+        //닫기버튼
+        $('.closeBTN').on('click', function () {
             document.querySelectorAll('#infoModal')[0].style.display = 'none';
             document.querySelectorAll('#billModal')[0].style.display = 'none';
         });
@@ -111,18 +169,9 @@
             }
         }
 
-        $('.productCard').on('dragstart', function (e) {
-            e.originalEvent.dataTransfer.setData('id', e.target.dataset.id);
-            console.log("드래그 시작");
-            console.log(e.target.dataset.id);
-        });
-        $('#cart').on('dragover', function (e) {
-            e.preventDefault();
-        });
-        $('#cart').on('drop', function (e) {
-            let productId = e.originalEvent.dataTransfer.getData('id');
-            console.log(productId);
-        });
+        //모달1 신상입력
+        
+
     </script>
 </body>
 
