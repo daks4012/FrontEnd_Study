@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="../styles/css/Cart.css" rel="stylesheet">
-<link rel="icon" href="../styles/assets/logo/Daks.png">
-<script src="https://code.jquery.com/jquery-3.7.0.min.js"
-    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous">
-    </script>
-<title>Cart</title>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../styles/css/Cart.css" rel="stylesheet">
+    <link rel="icon" href="../styles/assets/logo/Daks.png">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous">
+        </script>
+    <link rel="fontawesome" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Cart</title>
 </head>
 
 <body>
@@ -18,10 +23,12 @@
         <h3>시공견적</h3>
     </div>
     <div id="serchContainer">
-        <input id="serchInput" placeholder="&nbsp;상품 검색">
+        <label>
+            <input id="serchInput" placeholder="&nbsp;상품 검색" onkeyup="filter()">
+        </label>
     </div>
     <div id="productContainer">
-
+        <!-- 데이터 바인딩 -->
     </div>
     <div id="cartContainer">
         <h2>장바구니</h2>
@@ -55,14 +62,18 @@
             storeArr = data.products;
             storeArr.forEach(function (a, i) {
                 document.querySelectorAll('#productContainer')[0].insertAdjacentHTML("beforeend",
-                    `<div class="productCard">
-                        <img class="productIMG" src="https://daks4012.github.io/JAVASCRIPT/HighLevel/styles/assets/img/${storeArr[i].photo}">
-                        <h3>${storeArr[i].title}</h3>
-                        <h5>${storeArr[i].brand}</h5>
-                        <p>가격 : ${storeArr[i].price}</p>
+                    `<div class="productCard" draggable="true" data-id="${a.id}">
+                        <img class="productIMG" draggable="false" src="https://daks4012.github.io/JAVASCRIPT/HighLevel/styles/assets/img/${a.photo}">
+                        <h3 class="title">${a.title}</h3>
+                        <h5 class="brand">${a.brand}</h5>
+                        <p>가격 : ${a.price}</p>
                         <button class="productBTN">구매</button>
                     </div>`
                 );
+            });
+            $('.productBTN').click(function(e) { //상품목록 구매버튼 클릭
+                let productId = e.target.dataset.id;
+                console.log(productId);
             });
         });
 
@@ -84,7 +95,34 @@
             document.querySelectorAll('#billModal')[0].style.display = 'block';
         });
 
+        function filter() { //검색기능
+            let search = document.getElementById("serchInput").value.toLowerCase();
+            let listInner = document.getElementsByClassName("productCard");
+            for (let i = 0; i < listInner.length; i++) {
+                title = listInner[i].getElementsByClassName("title");
+                brand = listInner[i].getElementsByClassName("brand");
+                if (title[0].innerHTML.toLowerCase().indexOf(search) != -1 ||
+                    brand[0].innerHTML.toLowerCase().indexOf(search) != -1
+                ) {
+                    listInner[i].style.display = "grid";
+                } else {
+                    listInner[i].style.display = "none";
+                }
+            }
+        }
 
+        $('.productCard').on('dragstart', function (e) {
+            e.originalEvent.dataTransfer.setData('id', e.target.dataset.id);
+            console.log("드래그 시작");
+            console.log(e.target.dataset.id);
+        });
+        $('#cart').on('dragover', function (e) {
+            e.preventDefault();
+        });
+        $('#cart').on('drop', function (e) {
+            let productId = e.originalEvent.dataTransfer.getData('id');
+            console.log(productId);
+        });
     </script>
 </body>
 
