@@ -36,7 +36,7 @@
     </div>
     <div id="totalContainer">
         <h2>총 가격</h2>
-        <div id="total"></div>
+        <div class="total"></div>
         <button id="buyBTN">구매하기</button>
     </div>
     <div id="infoModal">
@@ -52,7 +52,8 @@
     <div id="billModal">
         <div id="billContainer">
             <h2>영수증</h2>
-            <div>asd</div>
+            <div id="bill"></div>
+            <div class="total"></div>
             <button id="billBTN" class="closeBTN">닫기</button>
         </div>
     </div>
@@ -135,7 +136,8 @@
                 var count = $('.item-count').eq(i).siblings('p').text();
                 finalPrice += parseFloat(price * count);
             }
-            $('#total').html('합계 ' + finalPrice);
+            $('.total').html('합계 : ' + finalPrice);
+            console.log(finalPrice);
         }
 
         //닫기버튼
@@ -148,10 +150,7 @@
             document.querySelectorAll('#infoModal')[0].style.display = 'block';
         });
 
-        document.querySelectorAll('#infoBTN')[0].addEventListener('click', function () { //입력완료 버튼 클릭
-            document.querySelectorAll('#infoModal')[0].style.display = 'none';
-            document.querySelectorAll('#billModal')[0].style.display = 'block';
-        });
+
 
         function filter() { //검색기능
             let search = document.getElementById("serchInput").value.toLowerCase();
@@ -170,8 +169,38 @@
         }
 
         //모달1 신상입력
-        
+        let 이름 = '';
+        let 전화번호 = '';
 
+        //입력 될때마다 값 저장
+        document.getElementById('infoName').addEventListener('input', function () {
+            이름 = document.getElementById('infoName').value;
+        });
+        document.getElementById('infoName').addEventListener('input', function () {
+            전화번호 = document.getElementById('infoNum').value;
+        });
+
+        //모달 입력완료 버튼
+        document.getElementById('infoBTN').addEventListener('click', function () {
+            if ((이름 == "" && 이름 == '') && (전화번호 == "" && 전화번호 == '')) {
+                alert("이름과 번호를 다시 확인해주세요.");
+            } else {
+                document.querySelectorAll('#infoModal')[0].style.display = 'none';
+                document.querySelectorAll('#billModal')[0].style.display = 'block';
+                $('#bill').html('');
+                cart.forEach((a, i) => {
+                    $('#bill').append(`
+                        <div class="billItem">
+                            <h3>상품명 : ${a.title}</h3>
+                            <h5>제조사 : ${a.brand}</h5>
+                            <p>개당 가격 : ${a.price}</p>
+                            <p>개수 : ${a.count}</p>
+                        </div>
+                    `);
+                });
+                총가격();
+            }
+        });
     </script>
 </body>
 
