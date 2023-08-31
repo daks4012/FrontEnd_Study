@@ -138,7 +138,7 @@ body {
     height: 200px;
 }
 
-#total {
+#totalContainer .total {
     margin: 10px 0 10px 10px;
 }
 
@@ -187,12 +187,16 @@ body {
     margin-top: 200px;
 }
 
-#billContainer h2 {
+#billContainer:nth-child(1n) {
     padding: 20px 0 0 20px;
 }
 
-#billBTN {
-    margin: 400px 0 0 20px;
+#billContainer h2{
+    padding-bottom: 20px;
+}
+
+.billItem{
+    padding-bottom: 10px;
 }
 
 @media (max-width: 1280px) {
