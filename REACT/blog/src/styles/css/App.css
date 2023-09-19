@@ -1,0 +1,69 @@
+@font-face {
+  src: url("/src/assets/font/MSFont_TTF/Maplestory\ Light.ttf");
+  font-family: "MSfont";
+}
+
+* {
+  white-space: nowrap;
+  font-family: "MSfont";
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+.black-nav {
+  background: beige;
+  width: 100%;
+  display: flex;
+  padding: 10px;
+}
+
+.logo {
+  width: 30px;
+}
+
+.list {
+  text-align: left;
+  padding: 15px;
+  border-bottom: 1px solid grey;
+}
+
+.list h4 {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.goodBtn {
+  cursor: pointer;
+}
+
+.Btn {
+  background-color: beige;
+  margin-top: 10px;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.modal {
+  margin-top: 20px;
+  padding: 15px;
+  background: #eee;
+  text-align: left;
+}
+
+.modal * {
+  padding: 5px;
+}
+
+.TLmargin {
+  margin: 10px 0 0 15px;
+}
+
+.titleAdd {
+  height: 20px;
+  border-radius: 5px;
+}
