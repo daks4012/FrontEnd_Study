@@ -4,7 +4,7 @@
 <div>
 
 ## Introduction
-#### 2023 Web Development Study Project<br>
+#### Web Development Study Project<br>
 #### studying various skills and develop user-friendly designs
 
 </div>
