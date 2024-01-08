@@ -1,0 +1,180 @@
+@font-face {
+  src: url("/public//assets//font/MSFont_TTF/Maplestory\ Light.ttf");
+  font-family: "MSfont";
+}
+
+* {
+  white-space: nowrap;
+  font-family: "MSfont";
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+.unvisible {
+  display: none;
+}
+
+.col img,
+h5 {
+  cursor: pointer;
+}
+
+.btn {
+  border-radius: 5px;
+  background-color: #212529;
+  color: #9B9D9E;
+}
+
+.navLogo {
+  width: 35px;
+  border-radius: 50px;
+}
+
+.main-bg {
+  height: 750px;
+  /*pixabay kerdkanno*/
+  background-image: url('/public/assets/img/lemon-906141_1920.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 1px;
+}
+
+.main-bg * {
+  text-align: center;
+  padding: 5px;
+  color: black;
+  text-shadow: 2px 1px 3px rgb(91, 91, 91);
+}
+
+.main-bgIntro {
+  margin-top: 150px;
+}
+
+.IntroH2 {
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.IntroP {
+  font-size: 1.5rem;
+}
+
+.porductTitle {
+  text-align: center;
+  margin: 30px 0 30px 0;
+}
+
+.productItem {
+  text-align: center;
+}
+
+.productImg {
+  width: 100%;
+  height: 300px;
+  box-shadow: 2px 2px 10px;
+  margin-bottom: 5px;
+}
+
+.productItem h5 {
+  margin: 5px 0 5px 0;
+}
+
+.moreBtn {
+  padding: 10px 20px 10px 20px;
+}
+
+.cartBtn {
+  padding: 3px 10px 3px 10px;
+}
+
+.detailItem {
+  margin-top: 3rem;
+}
+
+.detailItem img {
+  cursor: none;
+}
+
+.detailImg {
+  height: 500px;
+  box-shadow: 2px 2px 10px;
+  float: left;
+}
+
+.detailText {
+  float: left;
+  margin-left: 3rem;
+  width: 200px;
+  height: 100px;
+}
+
+.detailContainerNav {
+  margin-top: 575px;
+}
+
+.buyBtn {
+  margin-top: 12px;
+}
+
+.tabLink {
+  color: #9B9B9B;
+}
+
+.lastViewContainer {
+  margin: 0 5px 5px 5px;
+}
+
+.lastViewIMG {
+  width: 80px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.perfumeVolume {
+  border-radius: 5px;
+  padding-bottom: 3px;
+  width: 75px;
+}
+
+.total {
+  margin-top: 270px;
+}
+
+.tapContents {
+  padding: 10px 0 0 100px;
+}
+
+.tapStart {
+  opacity: 0.5
+}
+
+.tapEnd {
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+.btn:hover {
+  transition: 0.25s ease-out;
+  color: #C7C8C9;
+  background-color: #212529;
+}
+
+.btn:not(:hover) {
+  transition: 0.25s ease-out;
+}
+
+.productImg:hover {
+  transition: 0.25s ease-out;
+  transform: translateY(-15px);
+}
+
+.productImg:not(:hover) {
+  transition: 0.5s ease-out;
+}
+
+@media (max-width: 1200px) {}
