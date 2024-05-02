@@ -1,7 +1,7 @@
 import perfumeData from '../assets/data/perfume';
 import { useState } from 'react';
 import axios from 'axios'
-import { Container, Row } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom'
 import Card from '../components/Card';
 import styled from 'styled-components';
@@ -35,7 +35,6 @@ let LVtitle = styled.p`
 `;
 
 let mainPerfumeCopy = [];
-
 
 function Home() {
     let [perfume, setPerfume] = useState(perfumeData);
@@ -75,18 +74,19 @@ function Home() {
                 <h4>Product</h4>
             </div>
             <Container>
-                {mainPerfume.map(function (a, i) {
-                    return (
-                        i % 3 === 0 ?
-                            <Row>
-                                <Card perfume={perfume} i={i} />
-                                <Card perfume={perfume} i={i + 1} />
-                                <Card perfume={perfume} i={i + 2} />
-                            </Row>
-                            :
-                            null
-                    )
-                })}
+                <Row>
+                    {mainPerfume.map((product, index) => (
+                        <Col key={index} sm={4}>
+                            <Card
+                                title={product.title}
+                                content={product.content}
+                                price={product.price}
+                                index={index}
+                                imageUrl={`${process.env.PUBLIC_URL}/assets/img/perfume${index}.png`}
+                            />
+                        </Col>
+                    ))}
+                </Row>
                 <ContainerMoreBtn>
                     {mainPerfumeCopy.length < 9 ? <button className='btn moreBtn' onClick={() => {
                         perfumeNum === 3 ?
@@ -102,7 +102,6 @@ function Home() {
                         mainPerfumeCopy = [...perfume.filter(perfume => perfume.id < perfumeNum)];
                         setMainPerfume(mainPerfumeCopy);
                     }}>상품 더 보기</button> : null}
-
                 </ContainerMoreBtn >
             </Container >
         </>
