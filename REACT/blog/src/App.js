@@ -49,6 +49,7 @@ function App() {
           let 추가할제목 = [...글제목];
           추가할제목.push(글추가);
           글제목변경(추가할제목);
+          좋아요.push(0);
         }}>전송</button>
       </div>
       {
@@ -62,7 +63,7 @@ function Modal(props) {
   return <div className="modal">
     <h4>{props.글제목[props.title]}</h4>
     <p>날짜</p>
-    <p>상세내용</p>
+    <p>상세내용 . . .</p>
   </div>
 }
 
