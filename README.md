@@ -23,7 +23,7 @@
 
 ## About me (move on click)
 
-<a href="https://time-belly-ce2.notion.site/2023-8035319d2b7a4c8ca72ddd8300783179?pvs=4">
+<a href="https://www.notion.so/invite/6bf1283700c80e2fad375ff22e1fde8e7371c3a5">
 <img src="https://img.shields.io/badge/Notion-black?style=flat&logo=Notion&logoColor=white"/>
 </a>
 <a href="https://github.com/daks4012">
