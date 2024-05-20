@@ -18,8 +18,7 @@ div {
   display: none;
 }
 
-.col img,
-h5 {
+.col h5{
   cursor: pointer;
 }
 
@@ -78,6 +77,7 @@ h5 {
   height: 300px;
   box-shadow: 2px 2px 10px;
   margin-bottom: 5px;
+  cursor: pointer;
 }
 
 .productItem h5 {
@@ -97,7 +97,7 @@ h5 {
 }
 
 .detailItem img {
-  cursor: none;
+  cursor: default;
 }
 
 .detailImg {

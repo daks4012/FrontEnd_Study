@@ -47,8 +47,8 @@ function Cart() {
                                         >+</button>
                                     </td>
                                     <DelContainer>
-                                        <button className='btn' onClick={(e) => {
-                                            dispatch(deletePerfume(e.target.parentElement.parentElement));
+                                        <button className='btn' onClick={() => {
+                                            dispatch(deletePerfume(a.id));
                                         }}>삭제</button>
                                     </DelContainer>
                                 </TRtextCenter>

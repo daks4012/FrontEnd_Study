@@ -54,14 +54,14 @@ function Home() {
       .catch((error) => {
         console.error('Error fetching perfume data:', error);
       });
-  }, []);
+  }, []); // 빈 배열로 종속성 설정
 
   useEffect(() => { //mainPerfume은 화면에 상품을 출력함. perfume, perfumeNum가 감지되면 필터된 상품을 출력
     setMainPerfume(perfume.filter((product, index) => index < perfumeNum));
   }, [perfume, perfumeNum]);
 
   const handleLoadMoreProducts = () => { //버튼이 눌렸을 때 작동하며 숫자를 +3해 필터함
-    //현재 index의 낮은 상품들만 필터한다.
+    //현재 index보다 낮은 상품들만 필터한다.
     setPerfumeNum(prevNum => prevNum + 3);
     setMainPerfume(perfume.filter((product, index) => index < perfumeNum + 3));
   };
@@ -84,8 +84,12 @@ function Home() {
               lastView.length = 3;
               return (
                 <div className='lastViewContainer' key={i}>
-                  <img className='lastViewIMG' onClick={() => { navigate('/detail/' + lastView[i]) }} src={process.env.PUBLIC_URL + './assets/img/perfume' + lastView[i] + '.png'} alt='pixabay'></img>
-                  <LVperpumeTitle onClick={() => { navigate('/detail/' + lastView[i]) }}>{perfume[lastView[i]] && perfume[lastView[i]].title}</LVperpumeTitle>
+                  <img className='lastViewIMG' onClick={() => { navigate('/detail/' + lastView[i]) }}
+                    //src={process.env.PUBLIC_URL + '/assets/img/perfume' + lastView[i] + '.png'
+                    src={'https://daks4012.github.io/REACT/shop/assets/img/perfume' + lastView[i] + '.png'} alt='pixabay'></img>
+                  <LVperpumeTitle onClick={() => { navigate('/detail/' + lastView[i]) }}>
+                    {perfume[lastView[i]] && perfume[lastView[i]].title}
+                  </LVperpumeTitle>
                 </div>
               )
             })
