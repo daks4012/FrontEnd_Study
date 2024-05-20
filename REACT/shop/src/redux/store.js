@@ -2,9 +2,7 @@ import { configureStore, createSlice } from '@reduxjs/toolkit'
 
 let cartState = createSlice({
     name: 'cart',
-    initialState: [
-
-    ],
+    initialState: [],
     reducers: {
         quantityMinus(state, action) {
             let nowId = state.findIndex((prams) => { return prams.id === action.payload })
@@ -18,7 +16,7 @@ let cartState = createSlice({
             state.push(action.payload)
         },
         deletePerfume(state, action) {
-            action.payload.remove();
+            return state.filter((item) => item.id !== action.payload);
         }
     }
 })
