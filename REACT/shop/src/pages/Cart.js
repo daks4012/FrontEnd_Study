@@ -32,23 +32,24 @@ function Cart() {
                         perfume.cartState.map((a, i) => {
                             return (
                                 <TRtextCenter key={i}>
-                                    <td>{perfume.cartState[i].id + 1}</td>
+                                    <td>{i + 1}</td>
                                     <td>{perfume.cartState[i].name}</td>
                                     <td>{perfume.cartState[i].volume}</td>
                                     <td>
+                                        {
+                                            // perfume.cartState[i].id로 접근해 액션에 디스패치 함. 정확하게 참조 가능
+                                        }
                                         <button className='btn cartBtn' onClick={() => {
-                                            dispatch(quantityMinus(i))
-                                        }}
-                                        >-</button>
+                                            dispatch(quantityMinus(perfume.cartState[i].id));
+                                        }}>-</button>
                                         &ensp;{perfume.cartState[i].quantity}&ensp;
                                         <button className='btn cartBtn' onClick={() => {
-                                            dispatch(quantityPlus(i))
-                                        }}
-                                        >+</button>
+                                            dispatch(quantityPlus(perfume.cartState[i].id));
+                                        }}>+</button>
                                     </td>
                                     <DelContainer>
                                         <button className='btn' onClick={() => {
-                                            dispatch(deletePerfume(a.id));
+                                            dispatch(deletePerfume(perfume.cartState[i].id));
                                         }}>삭제</button>
                                     </DelContainer>
                                 </TRtextCenter>
