@@ -45,8 +45,9 @@ function Detail(props) {
                         <button className='btn buyBtn' onClick={() => {
                             dispatch(addPerfume({
                                 name: props.perfume[productId].title,
-                                volume: perfumeVolume + 'ml',
-                                quantity: 1
+                                volume: perfumeVolume,
+                                quantity: 1,
+                                price: props.perfume[productId].price
                             }));
                         }}>
                             구매하기
