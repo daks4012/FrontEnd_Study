@@ -1,6 +1,7 @@
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import { lazy, Suspense, useEffect, useState } from 'react';
+import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/css/App.css';
 import perfumeData from './assets/data/perfume.js';
@@ -13,11 +14,19 @@ const Cart = lazy(() => import('./pages/Cart.js'))
 
 function App() {
   let navigate = useNavigate();
-  let [perfume] = useState(perfumeData);
+  let [perfume, setPerfume] = useState(perfumeData);
   let lastView = JSON.parse(localStorage.getItem("latestView"));
 
 
   useEffect(() => {
+    axios.get('https://daks4012.github.io/REACT/shop/dummy/newPerfume.js')
+      .then((result) => {
+        setPerfume([...perfumeData, ...result.data]);
+      })
+      .catch((error) => {
+        console.error('Error fetching perfume data:', error);
+      });
+
     if (lastView === null) {
       return localStorage.setItem("latestView", JSON.stringify([]))
     } else {
@@ -41,8 +50,8 @@ function App() {
       </Navbar>
       <Suspense fallback={<div>Loading . . .</div>}>
         <Routes>
-          <Route path="/REACT/shop" element={<Home />} />
-          <Route path="/product" element={<Product />} />
+          <Route path="/REACT/shop" element={<Home perfume={perfume} />} />
+          <Route path="/product" element={<Product perfume={perfume} />} />
           <Route path="/detail/:productId" element={<Detail perfume={perfume} />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>

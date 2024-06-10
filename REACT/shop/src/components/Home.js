@@ -1,6 +1,4 @@
-import perfumeData from '../assets/data/perfume';
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom'
 import Card from '../components/Card';
@@ -34,8 +32,7 @@ const LVtitle = styled.p`
     padding: 10px 0 10px 0;
 `;
 
-function Home() {
-  const [perfume, setPerfume] = useState(perfumeData);
+function Home(props) {
   const [perfumeNum, setPerfumeNum] = useState(3);
   const [mainPerfume, setMainPerfume] = useState([]);
   const [isAllProductsLoaded, setIsAllProductsLoaded] = useState(false);
@@ -43,27 +40,20 @@ function Home() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('https://daks4012.github.io/REACT/shop/dummy/newPerfume.js')
-      .then((result) => {
-        const newPerfumeData = [...perfume, ...result.data];
-        setPerfume(newPerfumeData);
-        if (result.data.length === 0 || newPerfumeData.length >= 12) {
-          setIsAllProductsLoaded(true);
-        }
-      })
-      .catch((error) => {
-        console.error('Error fetching perfume data:', error);
-      });
+    console.log(props);
+    if (props.perfume.length === 0 || props.perfume.length >= 12) {
+      setIsAllProductsLoaded(true);
+    }
   }, []); // 빈 배열로 종속성 설정
 
   useEffect(() => { //mainPerfume은 화면에 상품을 출력함. perfume, perfumeNum가 감지되면 필터된 상품을 출력
-    setMainPerfume(perfume.filter((product, index) => index < perfumeNum));
-  }, [perfume, perfumeNum]);
+    setMainPerfume(props.perfume.filter((product, index) => index < perfumeNum));
+  }, [props.perfume, perfumeNum]);
 
   const handleLoadMoreProducts = () => { //버튼이 눌렸을 때 작동하며 숫자를 +3해 필터함
     //현재 index보다 낮은 상품들만 필터한다.
     setPerfumeNum(prevNum => prevNum + 3);
-    setMainPerfume(perfume.filter((product, index) => index < perfumeNum + 3));
+    setMainPerfume(props.perfume.filter((product, index) => index < perfumeNum + 3));
   };
 
   return (
@@ -88,7 +78,7 @@ function Home() {
                     //src={process.env.PUBLIC_URL + '/assets/img/perfume' + lastView[i] + '.png'
                     src={'https://daks4012.github.io/REACT/shop/assets/img/perfume' + lastView[i] + '.png'} alt='pixabay'></img>
                   <LVperpumeTitle onClick={() => { navigate('/detail/' + lastView[i]) }}>
-                    {perfume[lastView[i]] && perfume[lastView[i]].title}
+                    {props.perfume[lastView[i]] && props.perfume[lastView[i]].title}
                   </LVperpumeTitle>
                 </div>
               )
@@ -114,7 +104,7 @@ function Home() {
             </Col>
           ))}
         </Row>
-        {isAllProductsLoaded || mainPerfume.length >= perfume.length ? (
+        {isAllProductsLoaded || mainPerfume.length >= props.perfume.length ? (
           <ContainerMoreBtn>
             <button className='btn moreBtn' onClick={() => navigate('/product')}>상품 페이지로 이동</button>
           </ContainerMoreBtn>

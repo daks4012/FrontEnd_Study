@@ -28,12 +28,11 @@ function Detail(props) {
 
     // productId가 유효한지 확인
     if (!props.perfume[productId]) {
-        return <div>존재하지 않는 상품입니다.</div>
+        return <div>판매가 중단된 상품입니다.</div>
     }
 
     return (
         <>
-            {console.log(props.perfume)}
             <Container>
                 <Col className='detailItem'>
                     <img className='detailImg' src={process.env.PUBLIC_URL + '/assets/img/perfume' + productId + '.png'} alt='pixabay'></img>
